@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>도서관 키오스크 메인</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./files/style.css">
+  <style>
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    서창도서관
+  </div>
+  <div id="main_title" class="main"></div>
+  <div id="main_floor" class="main hidden">
+    <div id="floorHeader"></div>
+    <div id="floorMain"></div>
+    <footer id="floorfooter">
+      <button id="floorButton_1" class="floorButton">1층</button>
+      <button id="floorButton_2" class="floorButton">2충</button>
+      <button id="floorButton_3" class="floorButton">3층</button>
+      <button id="floorButton_4" class="floorButton">4층</button>
+    </footer>
+  </div>
+  <div id="main_schedule" class="main hidden"></div>
+  <footer class="footer">
+    <button id="footerButton_main" class="footerButton">메인</button>
+    <button id="footerButton_floor" class="footerButton">층별 안내</button>
+    <button id="footerButton_schedule" class="footerButton">휴관일<br>운영시간</button>
+  </footer>
+</body>
+<script src="./files/script.js"></script>
+</html>

@@ -1,2 +1,1 @@
-# mainkiosk
-mainkiosk
+# 도서관 키오스크 메인 페이지
