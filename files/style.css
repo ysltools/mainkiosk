@@ -1,75 +1,175 @@
-* {margin:0;padding:0;color:white;}
+@font-face {
+	font-family: "JSunflower";
+	src: url(./JSunflower.otf);
+}
+@font-face {
+	font-family: "NanumGothic";
+	src: url(./NanumGothic.otf);
+}
+
+* {
+  margin:0;
+  padding:0;
+  font-family: 'NanumGothic', 'Sans-serif';
+  color:white;
+  overflow:hidden;
+	user-select: none;
+}
 html {width:100%;height:100%;}
-body {width:100%;height:100%;background-color:#1F1F1F;}
+body {width:100%;height:100%;
+	background:#303030;
+}
+/* 이미지 미리 불러오기 body태그의 가상선택자를 이용한다 */
+body::after{
+	/* 소스만 다운받고 화면은 나태내지 않는다. (숨김 처리) */
+    position:absolute; 
+    width:0; 
+    height:0; 
+    overflow:hidden; 
+    z-index:-1;
+    
+    /* 필요한 이미지 미리 다운로드 */
+    content:
+      url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창표지.png") url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창표지.jpg")
+      url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창1층.png") url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창1층.jpg")
+      url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창2층.png") url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창2층.jpg")
+      url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창3층.png") url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창3층.jpg")
+      url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창4층.png") url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창4층.jpg")
+      url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창안내1.png") url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창안내1.jpg")
+      url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창안내2.png") url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창안내2.jpg")
+      url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창안내3.png") url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창안내3.jpg")
+      url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창안내4.png") url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창안내4.jpg")
+      url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창휴관일.png") url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창휴관일.jpg");
+}
+
 .header {
   width:100%;
-  height:50px;
-  border-bottom:1px white solid;
+  height:100px;
+  padding:5px;
+
+  border-bottom:1px #808080 solid;
   box-sizing: border-box;
 
-  font-size:40px;
-  line-height:50px;
+  font-size: 75px;
+  line-height:90px;
 }
+#logo_image {
+  display:block;
+  float:left;
+
+  width:auto;
+  height:100%;
+}
+#logo_text {
+  display:block;
+  float:left;
+  
+  width:auto;
+  height:90px;
+  margin-left:10px;
+
+  font-size:75px;
+  font-family: 'JSunflower', 'Sans-serif';
+  line-height:90px;
+}
+
+#refresh {
+	position:absolute;
+		right:10px;top:10px;
+	z-index:40;
+	width:70px;
+	height:70px;
+	background-image:url(../images/icon_refresh.png);
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:0% 50%;
+}
+		#refresh.wait {
+			pointer-events: none;
+		}
+	#refresh:active {
+		background-image:url(../images/icon_refresh_click.png)
+	}
 
 
 .main {
+  clear:left;
   width:100%;
-  height:calc(100% - 150px);
+  height:calc(100% - 300px);
 }
 .main.hidden {
   display:none;
 }
-#main_title {
-  background-image:url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창표지.png"), url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창jpg");
+#titleMain {
+  background-image:url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창표지.png"), url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창표지.jpg");
   background-size:contain;
   background-position: 50% 50%;
   background-repeat: no-repeat;
 }
 
-#floorHeader {
-  width:100%;
-  height:50px;
-  border-bottom:1px white solid;
-  box-sizing: border-box;
-
-  font-size:40px;
-  line-height:50px;
-  text-align: right;
-}
-#floorMain {
-  width:100%;
-  height:calc(100% - 150px);
-
-  background-size:contain;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-}
-  #floorMain.floor1 {
-    background-image:url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창1층.png"), url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창jpg");
-  }
-  #floorMain.floor2 {
-    background-image:url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창2층.png"), url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창jpg");
-  }
-  #floorMain.floor3 {
-    background-image:url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창3층.png"), url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창pg");
-  }
-  #floorMain.floor4 {
-    background-image:url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창4층.png"), url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창jpg");
-  }
-#floorfooter {
-  display:flex;
+#titleHeader, #floorHeader, #infoHeader {
   width:100%;
   height:100px;
-  border-top:1px white solid;
+  padding:5px 10px;
+  box-sizing: border-box;
+
+  font-size:60px;
+  font-family: 'JSunflower', 'Sans-serif';
+  line-height:80px;
+  text-align: right;
+}
+
+#titleMain, #floorMain, #infoMain {
+  width:100%;
+  height:calc(100% - 300px);
+  box-sizing: border-box;
+
+  background-size:contain;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+    #titleMain {height:calc(100% - 100px)}
+  #floorMain.floor1 {
+    background-image:url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창1층.png"), url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창1층.jpg");
+  }
+  #floorMain.floor2 {
+    background-image:url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창2층.png"), url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창2층.jpg");
+  }
+  #floorMain.floor3 {
+    background-image:url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창3층.png"), url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창3층.jpg");
+  }
+  #floorMain.floor4 {
+    background-image:url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창4층.png"), url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창4층.jpg");
+  }
+  #infoMain.info1 {
+    background-image:url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창안내1.png"), url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창안내1.jpg");
+  }
+  #infoMain.info2 {
+    background-image:url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창안내2.png"), url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창안내2.jpg");
+  }
+  #infoMain.info3 {
+    background-image:url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창안내3.png"), url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창안내3.jpg");
+  }
+  #infoMain.info4 {
+    background-image:url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창안내4.png"), url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창안내4.jpg");
+  }
+#floorFooter, #infoFooter {
+  display:flex;
+  width:100%;
+  height:200px;
   box-sizing: border-box;
 }
-  .floorButton {
+  .floorButton, .infoButton {
     display:inline-block;
-    flex: auto ;
+    flex: auto;
+    display:inline-block;
 
     color:black;
-    font-size:30px;
+    font-size:50px;
+    font-weight: bold;
+    line-height:70px;
   }
+    .floorButton {font-size:70px;}
 
 #main_schedule {
   background-image:url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창휴관일.png"), url("https://lib.yangsan.go.kr/cmm/fms/getImageKio.do?orignlFileNm=키오스크서창휴관일.jpg");
@@ -82,14 +182,42 @@ body {width:100%;height:100%;background-color:#1F1F1F;}
 .footer {
   display:flex;
   width:100%;
-  height:100px;
-  border-top:1px white solid;
+  height:200px;
   box-sizing: border-box;
 }
   .footerButton {
     display:inline-block;
-    flex: auto ;
+    flex: auto;
+    flex-basis: 100%;
 
     color:black;
-    font-size:30px;
+    font-size:50px;
+    font-weight: bold;
+    line-height:70px;
   }
+.icon {
+  font-size:60px;
+}
+
+.button-colorful {
+  background-color: #36A9AE;
+  background-image: linear-gradient(#42A1EC, #0070C9);
+  border: 2px solid #025794;
+  border-radius: 6px;
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  outline: 0;
+  text-align: center;
+  transition: box-shadow .05s ease-in-out,opacity .05s ease-in-out;
+  touch-action: manipulation;
+}
+
+.button-colorful:focus {
+  background-image: linear-gradient(#5adaff, #5adaff);
+  box-shadow: rgba(0, 0, 0, 0.15) 0 2px 4px inset, rgba(0, 0, 0, 0.4) 0 1px 1px;
+  color:black;
+}

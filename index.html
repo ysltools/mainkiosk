@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+      <meta charset="utf-8">
+    
   <title>도서관 키오스크 메인</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,26 +12,42 @@
   </style>
 </head>
 
-<body>
-  <div class="header">
-    서창도서관
+<body oncontextmenu="return false;">
+  <div class="header" oncontextmenu="return false;">
+    <img id="logo_image" src="./images/icon_logo.png">
+    <div id="logo_text">서창도서관</div>
+		<div id="refresh" oncontextmenu="return false;"></div>
   </div>
-  <div id="main_title" class="main"></div>
-  <div id="main_floor" class="main hidden">
-    <div id="floorHeader"></div>
-    <div id="floorMain"></div>
-    <footer id="floorfooter">
-      <button id="floorButton_1" class="floorButton">1층</button>
-      <button id="floorButton_2" class="floorButton">2층</button>
-      <button id="floorButton_3" class="floorButton">3층</button>
-      <button id="floorButton_4" class="floorButton">4층</button>
+  <div id="main_title" class="main" oncontextmenu="return false;">
+    <div id="titleHeader" oncontextmenu="return false;"></div>
+    <div id="titleMain" oncontextmenu="return false;"></div>
+  </div>
+  <div id="main_floor" class="main hidden" oncontextmenu="return false;">
+    <div id="floorHeader" oncontextmenu="return false;"></div>
+    <div id="floorMain" oncontextmenu="return false;"></div>
+    <footer id="floorFooter" oncontextmenu="return false;">
+      <button id="floorButton_1" class="floorButton button-colorful" oncontextmenu="return false;">1층</button>
+      <button id="floorButton_2" class="floorButton button-colorful" oncontextmenu="return false;">2층</button>
+      <button id="floorButton_3" class="floorButton button-colorful" oncontextmenu="return false;">3층</button>
+      <button id="floorButton_4" class="floorButton button-colorful" oncontextmenu="return false;">4층</button>
     </footer>
   </div>
-  <div id="main_schedule" class="main hidden"></div>
-  <footer class="footer">
-    <button id="footerButton_main" class="footerButton">메인</button>
-    <button id="footerButton_floor" class="footerButton">층별 안내</button>
-    <button id="footerButton_schedule" class="footerButton">휴관일<br>운영시간</button>
+  <div id="main_info" class="main hidden" oncontextmenu="return false;">
+    <div id="infoHeader" oncontextmenu="return false;"></div>
+    <div id="infoMain" oncontextmenu="return false;"></div>
+    <footer id="infoFooter" oncontextmenu="return false;">
+      <button id="infoButton_1" class="infoButton button-colorful" oncontextmenu="return false;">자료실<br>안내</button>
+      <button id="infoButton_2" class="infoButton button-colorful" oncontextmenu="return false;">가입 및<br>대출 안내</button>
+      <button id="infoButton_3" class="infoButton button-colorful" oncontextmenu="return false;">상호대차<br>책바다</button>
+      <button id="infoButton_4" class="infoButton button-colorful" oncontextmenu="return false;">도서기증<br>안내</button>
+    </footer>
+  </div>
+  <div id="main_schedule" class="main hidden" oncontextmenu="return false;"></div>
+  <footer class="footer" oncontextmenu="return false;">
+    <button id="footerButton_main" class="footerButton button-colorful" oncontextmenu="return false;"><span class="icon">🏠</span><br>HOME</button>
+    <button id="footerButton_floor" class="footerButton button-colorful" oncontextmenu="return false;">층별<br>안내</button>
+    <button id="footerButton_info" class="footerButton button-colorful" oncontextmenu="return false;">이용<br>안내</button>
+    <button id="footerButton_schedule" class="footerButton button-colorful" oncontextmenu="return false;">휴관일<br>운영시간</button>
   </footer>
 </body>
 <script src="./files/script.js"></script>
