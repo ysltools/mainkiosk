@@ -209,7 +209,7 @@ function goNext(id) {
     let targetElement = $("#" + buttonList[(buttonList.indexOf(id) + 1) % buttonList.length])
     await targetElement.click()
     targetElement.focus()
-  }, 1000)
+  }, 60000)
 }
 
 //=============================
