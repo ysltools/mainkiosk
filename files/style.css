@@ -44,7 +44,7 @@ body::after{
 
 .header {
   width:100%;
-  height:100px;
+  height:90px;
   padding:5px;
 
   border-bottom:1px #808080 solid;
@@ -107,7 +107,7 @@ body::after{
 .main {
   clear:left;
   width:100%;
-  height:calc(100% - 300px);
+  height:calc(100% - 290px);
 }
 .main.hidden {
   display:none;
